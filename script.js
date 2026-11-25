@@ -357,6 +357,20 @@ function initLanguageToggle() {
                     : "SocialGraphy - 探索你的人际星系 | 伴侣共享日历与成长记录";
             }
         }
+
+        // Hero 宣传片跟随语言切换
+        const heroVideo = document.getElementById("hero-video");
+        const heroSource = document.getElementById("hero-video-source");
+        if (heroVideo && heroSource) {
+            const target = lang === "en" ? "assets/promo_en.mp4" : "assets/promo_zh.mp4";
+            if (!heroSource.getAttribute("src").endsWith(target.split("/").pop())) {
+                heroSource.setAttribute("src", target);
+                // 换源后必须 load()，否则浏览器沿用已解析的旧媒体源
+                heroVideo.load();
+            }
+            const p = heroVideo.play();
+            if (p && typeof p.catch === "function") p.catch(() => {});
+        }
     }
 
     document.querySelectorAll("[data-lang-set]").forEach(btn => {

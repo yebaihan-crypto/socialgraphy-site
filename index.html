@@ -93,42 +93,12 @@
                     <div class="phone-mockup">
                         <div class="phone-screen">
                             <div class="phone-notch"></div>
-                            <!-- App View UI Inside Screen -->
-                            <div class="app-ui">
-                                <div class="app-header">
-                                    <span class="app-title">
-                                        <span class="lang-zh">人际星图</span>
-                                        <span class="lang-en">Star Graph</span>
-                                    </span>
-                                    <span class="app-subtitle">
-                                        <span class="lang-zh">我的银河系</span>
-                                        <span class="lang-en">My Galaxy</span>
-                                    </span>
-                                </div>
-                                <div class="galaxy-viewport">
-                                    <!-- Rotating orbital lines and nodes generated dynamically in CSS/JS -->
-                                    <div class="orbit orbit-1"></div>
-                                    <div class="orbit orbit-2"></div>
-                                    <div class="orbit orbit-3"></div>
-                                    <div class="galaxy-center">✨</div>
-                                    <!-- Stars/Persons -->
-                                    <div class="person-node p1" data-name="伴侣 (阿雅)" data-name-en="Partner (Aya)" data-role="Family"></div>
-                                    <div class="person-node p2" data-name="母亲" data-name-en="Mother" data-role="Family"></div>
-                                    <div class="person-node p3" data-name="老王" data-name-en="Lao Wang" data-role="Friend"></div>
-                                    <div class="person-node p4" data-name="Leader 李" data-name-en="Leader Li" data-role="Work"></div>
-                                    <div class="person-node p5" data-name="孩子 (小麦)" data-name-en="Child (Wheat)" data-role="Family"></div>
-                                </div>
-                                <div class="app-card">
-                                    <div class="card-title">
-                                        <span class="lang-zh">🪐 宇宙亲密度引力</span>
-                                        <span class="lang-en">🪐 Cosmic Proximity Gravity</span>
-                                    </div>
-                                    <p class="card-text">
-                                        <span class="lang-zh">阿雅与您在 7 天内进行了 14 次互动，处于第一星轨核心圈。</span>
-                                        <span class="lang-en">14 interactions with Aya in the last 7 days. Residing in core orbit 1.</span>
-                                    </p>
-                                </div>
-                            </div>
+                            <!-- 9:16 宣传片：语言由 applyLang() 同步切换 -->
+                            <video id="hero-video" class="hero-video" autoplay muted loop playsinline
+                                   preload="metadata" poster="assets/hero-poster.jpg"
+                                   aria-label="SocialGraphy product demo">
+                                <source id="hero-video-source" src="assets/promo_zh.mp4" type="video/mp4">
+                            </video>
                         </div>
                     </div>
                 </div>
