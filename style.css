@@ -111,7 +111,7 @@ main, .header, .footer { position: relative; z-index: 1; }
 /* ---------- Hero ---------- */
 .hero {
     position: relative;
-    text-align: center;
+    text-align: left;
     padding: 108px 0 120px;
     overflow: hidden;
 }
@@ -129,7 +129,16 @@ main, .header, .footer { position: relative; z-index: 1; }
         radial-gradient(ellipse 42% 48% at 50% 12%, rgba(27, 53, 65, 0.42), transparent 78%);
     pointer-events: none;
 }
-.hero-inner { position: relative; }
+/* 左文右视：hero 单独放宽，文字栏与视频栏并排 */
+.hero-inner {
+    position: relative;
+    width: min(100% - 48px, 1000px);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 80px;
+    align-items: center;
+}
+.hero-copy { min-width: 0; }
 
 .hero-mark {
     color: var(--mist);
@@ -153,11 +162,10 @@ main, .header, .footer { position: relative; z-index: 1; }
     margin-bottom: 30px;
 }
 
-/* 视频：竖屏直接居中，细边 + 大圆角，不套手机壳 */
+/* 视频：竖屏，细边 + 大圆角，不套手机壳 */
 .video-frame {
-    width: min(100%, 300px);
+    width: 300px;
     aspect-ratio: 9 / 16;
-    margin: 46px auto 0;
     border: 1px solid var(--line);
     border-radius: 24px;
     overflow: hidden;
@@ -194,7 +202,7 @@ main, .header, .footer { position: relative; z-index: 1; }
 .support-link {
     display: block;
     width: fit-content;
-    margin: 16px auto 0;
+    margin: 16px 0 0;
     color: var(--dim);
     font-size: 12px;
     font-weight: 300;
@@ -320,10 +328,18 @@ html[data-lang="en"] .lang-zh { display: none; }
     .nav { gap: 14px; }
     .nav a { font-size: 12px; }
     .brand { font-size: 13px; }
-    .hero { padding: 72px 0 88px; }
+    .hero { padding: 72px 0 88px; text-align: center; }
+    /* 窄屏回到单栏：文字在上、视频在下 */
+    .hero-inner {
+        width: min(100% - 40px, 720px);
+        grid-template-columns: 1fr;
+        gap: 36px;
+    }
     .hero h1 { font-size: clamp(34px, 10vw, 46px); }
+    .hero-copy .btn, .hero-copy .support-link { margin-left: auto; margin-right: auto; }
+    .support-link { margin-left: auto; margin-right: auto; }
     .lead { font-size: 13px; margin-bottom: 26px; }
-    .video-frame { width: min(100%, 280px); margin-top: 36px; }
+    .video-frame { width: min(100%, 280px); margin: 0 auto; }
     section.features, section.faq, section.support { padding: 68px 0; }
     .grid { grid-template-columns: 1fr; }
     .support-inner { grid-template-columns: 1fr; gap: 32px; }
