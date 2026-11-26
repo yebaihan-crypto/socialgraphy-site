@@ -358,6 +358,14 @@ function initLanguageToggle() {
             }
         }
 
+        // 下载按钮跟随语言切换：中文跳中国区，英文跳美区
+        const downloadBtn = document.getElementById("download-btn");
+        if (downloadBtn) {
+            downloadBtn.href = lang === "en"
+                ? "https://apps.apple.com/us/app/id6778294075"
+                : "https://apps.apple.com/cn/app/id6778294075";
+        }
+
         // Hero 宣传片跟随语言切换
         const heroVideo = document.getElementById("hero-video");
         const heroSource = document.getElementById("hero-video-source");
